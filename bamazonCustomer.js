@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var inquirer = require('inquirer')
 var connection = mysql.createConnection({
     host     : 'localhost',
     port     :  3306,
@@ -13,7 +14,28 @@ var connection = mysql.createConnection({
 
 });
 
-function 
+
+
+
+
+
+
+
+function start(){
+    inquirer.prompt({
+        name: "post",
+        type: "prompt",
+        message: "What is the id of the product you would like to buy?"
+
+    },)
+    .then(function(answer){
+
+
+
+    })
+
+
+}
 
 
 
