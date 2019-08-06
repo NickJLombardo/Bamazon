@@ -1,5 +1,6 @@
 var mysql = require('mysql');
 var inquirer = require('inquirer')
+var Table = require ("cli-table")
 var connection = mysql.createConnection({
     host     : 'localhost',
     port     :  3306,
@@ -10,61 +11,26 @@ var connection = mysql.createConnection({
 
   connection.connect(function(err){
     if(err) throw err;
-    console.log('connected as id' + connection.threadId + "\n")
-
+    // console.log('connected as id' + connection.threadId + "\n")
+    query()
 });
 
-
-
-
-
-
-
-
-function start(){
-    inquirer.prompt({
-        name: "post",
-        type: "prompt",
-        message: "What is the id of the product you would like to buy?"
-
-    },)
-    .then(function(answer){
-
-
-
+function query(){
+    connection.query("SELECT * FROM products", function(err, res) {
+        if (err) throw err;
+        const displayTable = new Table({
+            head: ["Item_id", "Product Name", "Department Name", "Price", "Stock Quantity"],
+            colWidths: [10,25,25,10,14]
+        });
+            for(let i =0; i<res.length; i++){
+                displayTable.push([res[i].item_id, res[i].product_name,res[i].department_name, res[i].price, res[i].stock_quantity])
+            }
+            console.log(displayTable.toString())
     })
 
-
 }
 
 
-
-
-
-
-
-
-
-// function createProduct(){
-//     console.log("Inserting a new product... \n")
-//     const query = connection.query( "INSERT INTO products SET ?",
-//      {
-//         product_name: "",
-//         department_name: "",
-//         price: 0,
-//         stock_quantity: 0
-
-//      },
-
-//      function(err, res) {
-//         if (err) throw err;
-//         console.log(res.affectedRows + " product inserted!\n");
-//         // Call updateProduct AFTER the INSERT completes
-//       }
-    
-//     );
-
-}
 
 
    
