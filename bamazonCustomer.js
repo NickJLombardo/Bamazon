@@ -50,7 +50,7 @@ function askQuestion(){
     .then(function(answer){
          const quantity = answer.Quantity;
          const idNumber = answer.ID;
-            productCheck(idNumber, quantity)
+        productCheck(idNumber, quantity)
     })
 }
 
@@ -71,6 +71,10 @@ function productCheck(ID, quantity){
 
 }
 
+// function exit() {
+// 	console.log("\nThanks for stopping by! Have a good day.");
+// 	connection.end();
+// }
 
 
 
