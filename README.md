@@ -4,4 +4,4 @@ The app will take in orders from customers and deplete stock from the store's in
 
 
 ![image of bamazon]
-(https://github.com/NickJLombardo/Bamazon/blob/master/bamazon.jpg?raw=true)
+(https://raw.githubusercontent.com/NickJLombardo/Bamazon/master/bamazon.jpg)
