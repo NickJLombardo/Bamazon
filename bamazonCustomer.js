@@ -50,7 +50,7 @@ function askQuestion(){
     .then(function(answer){
          const quantity = answer.Quantity;
          const idNumber = answer.ID;
-        productCheck(IdNumber, quantity)
+        productCheck(idNumber, quantity)
     })
 }
 
